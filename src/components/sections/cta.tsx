@@ -10,7 +10,9 @@ export function CTA() {
         </p>
 
         <div className="flex justify-center">
-          <Button className="flex items-center gap-2">Start Trading </Button>
+          <Button variant="new" className="flex items-center gap-2">
+            Start Trading {'>'}
+          </Button>
         </div>
       </div>
     </Section>

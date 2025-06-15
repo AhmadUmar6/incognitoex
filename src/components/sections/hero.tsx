@@ -9,10 +9,9 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { lazy, Suspense, useEffect, useState } from "react";
+import { ShinyButton } from "@/components/ui/shiny";
 
 const ease = [0.16, 1, 0.3, 1];
-
-
 
 function HeroTitles() {
   return (
@@ -70,7 +69,7 @@ function HeroCTA() {
         <Link
           href="/download"
           className={cn(
-            buttonVariants({ variant: "default" }),
+            buttonVariants({ variant: "new" }),
             "w-full sm:w-auto text-background flex gap-2 rounded-lg"
           )}
         >
@@ -119,8 +118,8 @@ export function Hero() {
 
   return (
     <Section id="hero">
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-8 w-full p-6 lg:p-12 border-x overflow-hidden min-h-[50vh]">
-        <div className="flex flex-col justify-start items-start lg:col-span-1">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-2 w-full px-8 lg:px-20 py-6 lg:py-12 border-x overflow-hidden min-h-[50vh]">
+      <div className="flex flex-col justify-start items-start lg:col-span-1">
           <HeroTitles />
           <HeroCTA />
         </div>

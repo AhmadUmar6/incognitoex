@@ -26,7 +26,7 @@ export function Header() {
           <Link
             href="#"
             className={cn(
-              buttonVariants({ variant: "default" }),
+              buttonVariants({ variant: "new" }),
               "h-8 text-primary-foreground rounded-lg group tracking-tight font-medium"
             )}
           >

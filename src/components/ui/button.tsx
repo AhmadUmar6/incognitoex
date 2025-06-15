@@ -21,7 +21,12 @@ const buttonVariants = cva(
 
         orange:
         "border border-input  hover:bg-accent hover:text-accent-foreground",
-      },
+
+        new1: "relative bg-transparent !text-white border border-white/50 hover:border-white hover:bg-white/5 transition-all duration-300 overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out hover:shadow-lg hover:shadow-white/10",
+
+        new: "relative bg-transparent !text-white border border-white/50 hover:border-white hover:bg-white/5 transition-all duration-300 overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:-translate-x-full before:animate-[shimmer_4s_ease-in-out_infinite] hover:before:animate-none hover:before:bg-gradient-to-r hover:before:from-transparent hover:before:via-white/25 hover:before:to-transparent hover:before:translate-x-full hover:before:transition-transform hover:before:duration-1000 hover:before:ease-out hover:shadow-lg hover:shadow-white/10",
+        // new2: "relative bg-transparent !text-white border border-white/50 hover:border-white hover:bg-white/5 transition-all duration-300 overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out hover:shadow-lg hover:shadow-white/10",
+        new2: "relative bg-transparent !text-white border border-white/50 hover:border-white hover:bg-white/5 transition-all duration-300 overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out hover:shadow-lg hover:shadow-white/10",      },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",

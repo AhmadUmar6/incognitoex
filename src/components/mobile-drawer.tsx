@@ -36,7 +36,7 @@ export function MobileDrawer() {
           <Link
             href="#"
             className={cn(
-              buttonVariants({ variant: "default" }),
+              buttonVariants({ variant: "new" }),
               "text-white rounded-full group"
             )}
           >
