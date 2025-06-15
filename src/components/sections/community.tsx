@@ -66,7 +66,7 @@ export function Community() {
         <Ripple />
         <div className="p-6 text-center py-12">
           <p className="text-muted-foreground mb-6 text-balance max-w-prose mx-auto font-medium">
-            We're grateful for the amazing trading community that helps
+            We are grateful for the amazing trading community that helps
             make IncognitoEx better every day.
           </p>
           
