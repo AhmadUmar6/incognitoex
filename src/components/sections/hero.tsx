@@ -1,6 +1,5 @@
 "use client";
 
-import { AuroraText } from "@/components/aurora-text";
 import { Icons } from "@/components/icons";
 import { Section } from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
@@ -10,14 +9,15 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { ShinyButton } from "@/components/ui/shiny";
+import Aurora from "@/components/Aurora"; 
 
 const ease = [0.16, 1, 0.3, 1];
 
 function HeroTitles() {
   return (
-    <div className="flex w-full max-w-3xl flex-col overflow-hidden pt-8">
+    <div className="flex w-full max-w-3xl flex-col overflow-hidden pt-4">
       <motion.h1
-        className="text-left text-4xl font-semibold leading-tighter text-foreground sm:text-5xl md:text-6xl tracking-tighter"
+        className="text-left text-4xl font-semibold leading-tight text-foreground sm:text-6xl md:text-8xl tracking-tighter mb-3"
         initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
         transition={{
@@ -36,13 +36,18 @@ function HeroTitles() {
             ease,
           }}
         >
-          <AuroraText className="leading-normal">
+          <span 
+            className="leading-tight text-white font-mono"
+            style={{
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)'
+            }}
+          >
             {siteConfig.hero.title}
-          </AuroraText>
+          </span>
         </motion.span>
       </motion.h1>
       <motion.p
-        className="text-left max-w-xl leading-normal text-muted-foreground sm:text-lg sm:leading-normal text-balance"
+        className="text-left max-w-md leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed text-balance"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -59,9 +64,9 @@ function HeroTitles() {
 
 function HeroCTA() {
   return (
-    <div className="relative mt-6">
+    <div className="relative mt-4">
       <motion.div
-        className="flex w-full max-w-2xl flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+        className="flex w-full max-w-2xl flex-col items-start justify-start space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.8, ease }}
@@ -78,7 +83,7 @@ function HeroCTA() {
         </Link>
       </motion.div>
       <motion.p
-        className="mt-3 text-sm text-muted-foreground text-left"
+        className="mt-4 text-sm text-muted-foreground text-left"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
@@ -88,6 +93,7 @@ function HeroCTA() {
     </div>
   );
 }
+
 const LazySpline = lazy(() => import("@splinetool/react-spline"));
 
 export function Hero() {
@@ -118,13 +124,24 @@ export function Hero() {
 
   return (
     <Section id="hero">
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-2 w-full px-8 lg:px-20 py-6 lg:py-12 border-x overflow-hidden min-h-[50vh]">
-      <div className="flex flex-col justify-start items-start lg:col-span-1">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-0 w-full px-8 lg:px-20 py-16 lg:py-24 border-x overflow-hidden min-h-[50vh] lg:min-h-[70vh]">
+        
+        {/* Aurora Background - positioned behind everything */}
+        <div className="absolute inset-0 -z-10">
+          <Aurora
+            colorStops={["#0d0d0d", "#e6e6e6", "#2a2a2a"]}  //colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+            blend={0.5}
+            amplitude={1.0}
+            speed={0.5}
+          />
+        </div>
+        
+        <div className="flex flex-col justify-center items-start lg:col-span-1 relative z-10">
           <HeroTitles />
           <HeroCTA />
         </div>
         {!isMobile && (
-          <div className="relative lg:h-full lg:col-span-1">
+          <div className="relative lg:h-full lg:col-span-1 z-10">
             <Suspense>
               {showSpline && (
                 <motion.div

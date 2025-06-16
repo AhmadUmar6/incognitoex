@@ -21,7 +21,6 @@ const Section = forwardRef<HTMLElement, SectionProps>(
   ) => {
     const internalRef = useRef<HTMLElement>(null);
     const ref = forwardedRef || internalRef;
-    const sectionId = title ? title.toLowerCase().replace(/\s+/g, "-") : id;
     const alignmentClass =
       align === "left"
         ? "text-left"
@@ -31,16 +30,21 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 
     return (
       <section id={id} ref={ref}>
-        <div className={cn("relative mx-auto container", className)}>
+        <div
+          className={cn(
+            "relative mx-auto max-w-screen-2xl px-6 md:px-12",
+            className
+          )}
+        >
           {(title || subtitle || description) && (
             <div
               className={cn(
                 alignmentClass,
-                "relative mx-auto border-x border-t overflow-hidden p-2 py-8 md:p-12"
+                "relative mx-auto border-x-2 border-t-2 overflow-hidden p-4 py-16 md:p-20"
               )}
             >
               {title && (
-                <h2 className="text-sm text-muted-foreground text-balance font-semibold tracking-tigh uppercase">
+                <h2 className="text-sm font-semibold uppercase tracking-tight text-muted-foreground">
                   {title}
                 </h2>
               )}
@@ -48,7 +52,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
               {subtitle && (
                 <h3
                   className={cn(
-                    "mx-0 mt-4 max-w-lg text-5xl text-balance font-bold sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tighter text-foreground lowercase",
+                    "mx-0 mt-4 max-w-lg text-5xl font-bold leading-[1.2] tracking-tighter text-foreground lowercase text-balance sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl",
                     align === "center"
                       ? "mx-auto"
                       : align === "right"
@@ -59,10 +63,11 @@ const Section = forwardRef<HTMLElement, SectionProps>(
                   {subtitle}
                 </h3>
               )}
+
               {description && (
                 <p
                   className={cn(
-                    "mt-6 text-lg leading-8 text-muted-foreground text-balance max-w-2xl",
+                    "mt-6 max-w-2xl text-lg leading-8 text-muted-foreground text-balance",
                     align === "center"
                       ? "mx-auto"
                       : align === "right"
@@ -73,7 +78,8 @@ const Section = forwardRef<HTMLElement, SectionProps>(
                   {description}
                 </p>
               )}
-              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-full w-full bg-gradient-to-t from-background dark:from-background -z-10 from-50%" />
+
+              <div className="pointer-events-none absolute inset-0 h-full w-full -z-10 bg-gradient-to-t from-background dark:from-background from-50%" />
               <FlickeringGrid
                 squareSize={4}
                 gridGap={4}
